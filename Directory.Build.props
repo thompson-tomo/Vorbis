@@ -3,7 +3,7 @@
     <!-- Version for the NAudio.Vorbis package. CI overrides <VersionSuffix> on
          pre-release builds (e.g. preview.NN). The test and sample apps set
          <IsPackable>false</IsPackable> and are never published. -->
-    <VersionPrefix>3.0.0</VersionPrefix>
+    <VersionPrefix>3.0.1</VersionPrefix>
 
     <!-- The NVorbis version the package is built against, overridable from the
          command line so a preview can be cut against a newer NVorbis without
