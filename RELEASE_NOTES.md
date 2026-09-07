@@ -2,10 +2,12 @@
 
 <!--
 Bullets land here as PRs merge. The maintainer renames this section to
-"### 3.0.0 (date)" at release time - the release workflow requires a section
+"### <version> (date)" at release time - the release workflow requires a section
 matching the version being tagged, and uses this "Unreleased" section for
 previews. The workflow strips these HTML comments before publishing.
 -->
+
+### 3.0.0 (7 Sep 2026)
 
 NAudio.Vorbis 3.0 requires NAudio 3 and .NET 9. If you are still on NAudio 2 or
 need .NET Standard 2.0, stay on NAudio.Vorbis 1.5.0.
@@ -18,4 +20,11 @@ need .NET Standard 2.0, stay on NAudio.Vorbis 1.5.0.
  * Updated to NVorbis 0.10.5, which fixes `VorbisWaveReader.Comments` throwing an `InvalidCastException` on every file (#17)
  * `VorbisWaveReader` reads decoded audio straight into the caller's buffer, removing a `[ThreadStatic]` scratch buffer and a copy per read
  * The public API is now fully XML-documented, so the package ships complete IntelliSense
+ * The package now carries the repo README, so the NuGet page documents how to get started (#18)
  * Added a unit test suite, a WinForms test harness, and build and release pipelines
+
+Seeking still has limitations that come from the current stable NVorbis rather
+than from this wrapper - seeking into the final page of a file can throw, and
+seeking back to the start does not always land on the first sample. Both are
+fixed in the NVorbis 1.0.0 line, which is still a prerelease. See
+[Known NVorbis limitations](https://github.com/naudio/Vorbis#known-nvorbis-limitations).
