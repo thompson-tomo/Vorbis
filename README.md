@@ -135,6 +135,10 @@ against the NVorbis 1.0 prerelease. `release.yml` publishes to NuGet:
  * **Final release** — set `VersionPrefix` in `Directory.Build.props`, rename the `### Unreleased` section of `RELEASE_NOTES.md` to `### <version> (date)`, then push a matching `v*` tag. The workflow refuses to cut a final release against a prerelease NVorbis
  * **Preview** — run the workflow manually from `master`. It publishes `<VersionPrefix>-preview.<run number>`, or the label you pass in `milestone`. Pass `nvorbis_version` to build the preview against a different NVorbis
 
+After a final release, bump `VersionPrefix` to the next development version.
+Without that, the next preview is numbered *below* the release that just
+shipped, since `3.0.0-preview.N` sorts before `3.0.0`.
+
 Publishing uses NuGet trusted publishing (OIDC), so there is no API key to
 rotate; the `NUGET_USER` repository variable names the NuGet.org account.
 
